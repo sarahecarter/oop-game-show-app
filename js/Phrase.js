@@ -13,8 +13,7 @@
         for (let i = 0; i < this.phrase.length; i++) {
             //creates an li element
             let li = document.createElement('LI');
-            li.textContent = this.phrase.charAt(i);
-            console.log(this.phrase.charAt(i));
+            li.textContent = this.phrase[i];
             //appends li element to board
             board.appendChild(li);
             //check if space or letter
@@ -22,7 +21,7 @@
                 li.className = 'space';
             } 
             else {
-                li.className = 'letter';
+                li.className = `hide letter ${this.phrase[i]}`;
             }
         }
      }
