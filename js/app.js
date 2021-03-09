@@ -1,11 +1,17 @@
 /* Treehouse FSJS Techdegree
  * Project 4 - OOP Game App
  * app.js */
-//Test
-// const phrase = new Phrase('Life is like a box of chocolates');
-// console.log(`Phrase - phrase: ${phrase.phrase}`)
+//Tests
 
-const game = new Game();
-game.phrases.forEach((phrase, index) => {
-    console.log(`Phrase ${index} - phrase: ${phrase.phrase}`);
+
+
+//Variables
+let startButton = document.getElementById('btn__reset');
+let overlay = document.getElementById('overlay');
+let board = document.querySelector('#phrase ul');
+
+startButton.addEventListener('click', () => {
+    let game = new Game;
+    game.startGame();
+    console.log(game.activePhrase.phrase);
 });
