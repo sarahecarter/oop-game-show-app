@@ -24,6 +24,7 @@ class Game {
     
     startGame() {
         //hides the overlay screen to start the game
+        let overlay = document.getElementById('overlay');
         overlay.style.display = 'none';
         //calls getRandomPhrase()
         let randomPhrase = this.getRandomPhrase();

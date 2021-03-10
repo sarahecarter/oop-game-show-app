@@ -7,9 +7,8 @@
 
 //Variables
 let startButton = document.getElementById('btn__reset');
-let overlay = document.getElementById('overlay');
-let board = document.querySelector('#phrase ul');
 
+//Event Listener
 startButton.addEventListener('click', () => {
     let game = new Game;
     game.startGame();
