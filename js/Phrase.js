@@ -30,17 +30,9 @@
      }
 
      //checks if the letter clicked is in the phrase
-     checkLetter(letter) {
-         //target letters 
-         let allLetters = document.getElementsByClassName('letter');
-         //loop through letters in phrase
-         for (let i = 0; i < allLetters.length; i++) {
-            //check if button letter is in phrase
-            if (letter === allLetters[i].textContent) {
-                //if button is in phrase return true and show letter
-                this.showMatchedLetter(letter);
-            }
-        }
+     checkLetter(letterSelected) {
+         //return true or false if phrase includes letter
+        return this.phrase.includes(letterSelected);
      }
 
      //reveals letter on board

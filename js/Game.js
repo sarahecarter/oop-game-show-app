@@ -40,11 +40,44 @@ class Game {
         return chosenPhrase;
     }
 
-    handleInteraction() {}
+    handleInteraction(button) {
+        //check to see if button clicked matches letter in phrase
+        let result = this.activePhrase.checkLetter(button.textContent);
+        //disable letter
+        button.disabled = true;
+        //if not correct letter
+        if (result === false) {
+            //add wrong css class to keyboard button
+            button.classList.add('wrong');
+            //call removeLife method
+            
 
-    removeLife() {}
+        }
+            
+        //if correct letter 
+        if (result === true) {
+            //add chosen css class to keyboard button
+            button.classList.add('chosen');
+            //call showMatchedLetter function on phrase
+            this.activePhrase.showMatchedLetter(button.textContent);
+            //call checkForWin()
+            //if player has won game 
+                //call gameOver method
+        }
+            
+    }
 
-    checkForWin() {}
+    removeLife() {
 
-    gameOver() {}
+    }
+
+    //checks to see if all letters have been revealed
+    checkForWin() {
+        //get letters
+        //check if any letters still have the hide class
+    }
+
+    gameOver() {
+
+    }
 }
