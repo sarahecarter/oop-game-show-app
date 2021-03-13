@@ -114,7 +114,7 @@
         board.innerHTML = '';
         this.missed = 0;
         //reset keys
-        let keys = document.querySelectorAll('button.key');
+        
         keys.forEach(key => {
             key.disabled = false;
             key.className = 'key';
