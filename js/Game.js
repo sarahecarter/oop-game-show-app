@@ -71,7 +71,6 @@
     }
 
     removeLife() {
-        
         //add to missed 
         this.missed += 1;
         //if missed is less than 5
@@ -82,7 +81,6 @@
         else {
             this.gameOver();
         }
-        
     }
 
     //checks to see if all letters have been revealed
@@ -114,7 +112,6 @@
         board.innerHTML = '';
         this.missed = 0;
         //reset keys
-        
         keys.forEach(key => {
             key.disabled = false;
             key.className = 'key';

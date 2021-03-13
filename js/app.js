@@ -1,9 +1,6 @@
 /* Treehouse FSJS Techdegree
  * Project 4 - OOP Game App
  * app.js */
-//Tests
-
-
 
 //Variables
 let overlay = document.getElementById('overlay');
