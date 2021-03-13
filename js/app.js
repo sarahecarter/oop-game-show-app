@@ -6,8 +6,11 @@
 
 
 //Variables
+let overlay = document.getElementById('overlay');
+let board = document.querySelector('#phrase ul');
 let startButton = document.getElementById('btn__reset');
 let keyboard = document.getElementById('qwerty');
+let hearts = document.getElementsByTagName('IMG');
 let game = new Game;
 
 //Event Listeners
@@ -15,13 +18,11 @@ let game = new Game;
 //Start Game
 startButton.addEventListener('click', () => {
     game.startGame();
-    console.log(game.activePhrase.phrase);
 });
 
 //Keyboard
 keyboard.addEventListener('click', (e) => {
     if (e.target.tagName === 'BUTTON') {
        game.handleInteraction(e.target);
-    //    console.log(e.target.textContent);
     }
 })

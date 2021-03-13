@@ -1,7 +1,9 @@
 /* Treehouse FSJS Techdegree
  * Project 4 - OOP Game App
  * Game.js */
-class Game {
+
+
+ class Game {
     constructor () {
         this.missed = 0;
         this.phrases = this.createPhrases();
@@ -24,7 +26,6 @@ class Game {
     
     startGame() {
         //hides the overlay screen to start the game
-        let overlay = document.getElementById('overlay');
         overlay.style.display = 'none';
         //calls getRandomPhrase()
         let randomPhrase = this.getRandomPhrase();
@@ -50,8 +51,7 @@ class Game {
             //add wrong css class to keyboard button
             button.classList.add('wrong');
             //call removeLife method
-            
-
+            this.removeLife();
         }
             
         //if correct letter 
@@ -60,24 +60,69 @@ class Game {
             button.classList.add('chosen');
             //call showMatchedLetter function on phrase
             this.activePhrase.showMatchedLetter(button.textContent);
-            //call checkForWin()
             //if player has won game 
+            if (this.checkForWin()) {
                 //call gameOver method
+                this.gameOver();
+            }
+                
         }
             
     }
 
     removeLife() {
-
+        
+        //add to missed 
+        this.missed += 1;
+        //if missed is less than 5
+        if (this.missed < 5) {
+            //replace image with lost heart 
+            hearts[this.missed - 1].src = 'images/lostHeart.png';
+        }
+        else {
+            this.gameOver();
+        }
+        
     }
 
     //checks to see if all letters have been revealed
     checkForWin() {
-        //get letters
-        //check if any letters still have the hide class
+        //get letters with hide class
+        let hidden = document.getElementsByClassName('hide');
+        //if null return true 
+        if (hidden.length === 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     gameOver() {
-
+        let gameOverMessage = document.getElementById('game-over-message');
+        overlay.style.display = 'flex';
+        if (this.missed === 5) {
+            overlay.className = 'lose';
+            gameOverMessage.textContent = 'You lost!';
+        }
+        else {
+            overlay.className = 'win';
+            gameOverMessage.textContent = 'You won!';
+        }
+        startButton.textContent = 'Play again?';
+        //reset gameboard
+        board.innerHTML = '';
+        this.missed = 0;
+        //reset keys
+        let keys = document.querySelectorAll('button.key');
+        keys.forEach(key => {
+            key.disabled = false;
+            key.className = 'key';
+        })
+        //reset lives
+        for (let i = 0; i < hearts.length; i++) {
+            hearts[i].src = 'images/liveHeart.png';
+        }
+        
     }
 }

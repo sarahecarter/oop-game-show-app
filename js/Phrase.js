@@ -17,7 +17,6 @@
             let li = document.createElement('LI');
             li.textContent = this.phrase[i];
             //appends li element to board
-            let board = document.querySelector('#phrase ul');
             board.appendChild(li);
             //check if space or letter
             if (li.textContent === " ") {
