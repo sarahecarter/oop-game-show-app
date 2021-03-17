@@ -27,13 +27,15 @@ keyboard.addEventListener('click', (e) => {
 
 //listen for keyboard interaction
 document.addEventListener('keydown', (e) => {
-    let keyBoardLetters
+    //make sure keys cannot be pressed when overlay is displayed 
+    if (overlay.style.display === 'none') {
     //look through keys for matching key
     keys.forEach(key => {
-        if (e.key === key.textContent) {
+        if (e.key === key.textContent && key.disabled == false) {
            //handle interaction of that button
             game.handleInteraction(key); 
         }
     }); 
+    }
 })
 
